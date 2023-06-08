@@ -167,7 +167,7 @@ class BookModule{
     printBookForm(bookId){
         //console.log("printBookForm("+bookId+");");
         document.getElementById('content').innerHTML =
-        ` <h3 class="w-100 d-flex justify-content-center mt-5">Книга</h3>
+        ` <h3 class="w-100 d-flex justify-content-center mt-5">Обувь</h3>
             <div id="containerBook" class="w-100 p-3 d-flex justify-content-center">
                 
             </div>`;
@@ -304,5 +304,4 @@ class BookModule{
 }
 const bookModule = new BookModule();
 export {bookModule};
-
 

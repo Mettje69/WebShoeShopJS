@@ -59,7 +59,7 @@ class LoginModule{
                     }
                 })
                 .catch(error => {
-//                    document.getElementById('info').innerHTML='Авторизоваться не удалось ('+error+')';
+                    document.getElementById('info').innerHTML='Авторизоваться не удалось ('+error+')';
                     checkAuthorization();
                 });
 

@@ -66,7 +66,7 @@ function checkAuthorization(){
         //show
         logIn.hidden = false;
         newUser.hidden=false;
-        document.getElementById('listAuthors').hidden=false;
+        document.getElementById('listAuthors').hidden=true;
         
         //hidden
         document.getElementById('userLogin').hidden = true;
@@ -118,6 +118,9 @@ function checkAuthorization(){
         newUser.hidden=false;
         userProfile.hidden=false;
         listUsers.hidden=false;
+        document.getElementById('returnBook').hidden=true;
+        document.getElementById('addAuthor').hidden=true;
+        document.getElementById('listAuthors').hidden=true;
         document.getElementById('liAdministrator').hidden=false;
     }
     

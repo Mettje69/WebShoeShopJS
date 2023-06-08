@@ -90,7 +90,7 @@ public class ConvertorToJson {
         jobBook.add("PublishedYear", book.getPublishedYear());
         jobBook.add("quantity", book.getQuantity());
         jobBook.add("cover", getJOCover(book.getCover()));
-        jobBook.add("authors", getJAAuthorsWithoutBooks(book.getAuthors()));
+        
         return jobBook.build();
     }
     public JsonArray getJABooks(List<Book> listBooks) {
@@ -103,7 +103,6 @@ public class ConvertorToJson {
             jobBook.add("PublishedYear", book.getPublishedYear());
             jobBook.add("quantity", book.getQuantity());
             jobBook.add("cover", getJOCover(book.getCover()));
-            jobBook.add("authors", getJAAuthorsWithoutBooks(book.getAuthors()));
             jabBooks.add(jobBook.build());
         }
         return jabBooks.build();
