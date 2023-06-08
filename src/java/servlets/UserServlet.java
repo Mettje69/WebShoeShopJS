@@ -180,10 +180,10 @@ public class UserServlet extends HttpServlet {
                     history.setTakeOnBook(new GregorianCalendar().getTime());
                     bookFacade.edit(book);
                     historyFacade.create(history);
-                    job.add("info", "Книга выдана пользователю");
+                    job.add("info", "Обувь выдана пользователю");
                     
                 } catch (Exception e) {
-                    job.add("info", "Книгу выдать не удалось");
+                    job.add("info", "Обувь выдать не удалось");
                 }
                 try (PrintWriter out = response.getWriter()) {
                     out.println(job.build().toString());

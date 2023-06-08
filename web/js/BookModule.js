@@ -14,7 +14,7 @@ class BookModule{
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputLastname" class="col-sm-3 col-form-label">Год издания</label>
+                        <label for="inputLastname" class="col-sm-3 col-form-label">Цена</label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="inputPublishedYear" name="publishedYear">
                         </div>
@@ -26,6 +26,13 @@ class BookModule{
                         </div>
                     </div>
                     
+                    <div class="mb-3 row">
+                        <label for="selectedAuthors" class="col-sm-3 col-form-label">Выберите фирму</label>
+                        <select id="selectedAuthors" multiple="true" class="form-select" aria-label="">
+                            
+                        </select>
+                    </div>
+        
                     <div class="mb-3 row">
                         <label for="selectedCovers" class="col-sm-3 col-form-label">Выберите фото для обуви</label>
                         <select id="selectedCover" class="form-select" aria-label="">
@@ -94,12 +101,14 @@ class BookModule{
         
     }
     createBook(){
-        
+        let selectedAuthors = document.getElementById('selectedAuthors');
+        let authors= Array.from(selectedAuthors.selectedOptions).map(option => option.value);
         let book = {
             bookName: document.getElementById('inputBookName').value,
+            publishedYear: document.getElementById('inputPublishedYear').value,
             quantity: document.getElementById('inputQuantity').value,
             cover: document.getElementById('selectedCover').value,
-            
+            authors: authors,
         }
         fetch('createBook',{
             method: 'POST',
@@ -141,11 +150,11 @@ class BookModule{
                 for(let i=0;i< response.books.length;i++){
                     let card = document.createElement('div');
                     card.setAttribute('class','card m-2');
-                    card.setAttribute('style', 'width: 13rem');
+                    card.setAttribute('style', 'width: 19rem');
                     card.innerHTML =`
                             <img src="insertFile/${response.books[i].cover.url}" width='100%' heigth='200px'/>
-                            <a id="showBook${response.books[i].id}" class="text-decoration-none" href=""> Book </a>
-                            <a id="editBook${response.books[i].id}" class="editBookLink" href="#">Редактировать книгу</a>`;
+                            <a>ㅤㅤㅤㅤㅤNIKE AIR FORCE 1 '07 </a>
+                            <a>ㅤㅤㅤㅤㅤㅤㅤㅤ109.99 € </a>`;
                              
                     containerBooks.insertAdjacentElement('beforeend',card);
                     let showBook = document.getElementById("showBook"+response.books[i].id);
@@ -253,7 +262,7 @@ class BookModule{
                 let containerBooks = document.getElementById('containerBooks');
                 if(!response.histories.length > 0){
                     let p = document.createElement('p');
-                    p.innerHTML = "Читаемых книг нет";
+                    p.innerHTML = "Обуви нет";
                     containerBooks.appendChild(p);
                     return;
                 }
@@ -263,7 +272,7 @@ class BookModule{
                     card.setAttribute('style', 'width: 13rem');
                     card.innerHTML =`
                             <img src="insertFile/${response.histories[i].book.cover.url}" width='100%' heigth='200px'/>
-                            <a id="returnBook${response.histories[i].id}" class="text-decoration-none" href=""> Вернуть книгу</a>
+                            <a id="returnBook${response.histories[i].id}" class="text-decoration-none" href=""> Вернуть обувь</a>
                             `;
                              
                     containerBooks.insertAdjacentElement('beforeend',card);

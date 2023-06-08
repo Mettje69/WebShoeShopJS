@@ -33,6 +33,7 @@ import session.UserFacade;
     "/addRole",
     "/removeRole",
     "/getListUsers",
+    "/statistc"
 })
 public class AdminServlet extends HttpServlet {
     @EJB private UserFacade userFacade;
@@ -176,8 +177,11 @@ public class AdminServlet extends HttpServlet {
                 try (PrintWriter out = response.getWriter()) {
                     out.println(job.build().toString());
                 }
-                break;    
+                break;  
+                
+            case "/statistc":
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -56,6 +56,11 @@ returnBook.addEventListener('click',e=>{
     e.preventDefault();
     bookModule.printFormListReadingBooks();
 });
+let statistic = document.getElementById('statistic');
+statistic.addEventListener('click',e=>{
+    e.preventDefault();
+    adminModule.printFormStatistic();
+});
 
 
 function checkAuthorization(){

@@ -109,10 +109,10 @@ public class ManagerServlet extends HttpServlet {
                         author.getBooks().add(book);
                         authorFacade.edit(author);
                     }
-                    job.add("info", "Книга успешно создана");
+                    job.add("info", "Обувь успешно добавлена");
                     job.add("status", true);
                 } catch (Exception e) {
-                    job.add("info", "Книгу создать не удолось");
+                    job.add("info", "Обувь выдать не удолось");
                     job.add("status", false);
                 }
                 try (PrintWriter out = response.getWriter()) {
